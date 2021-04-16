@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.compasso.cliente.dto.CidadeDto;
 
 @Component
-@FeignClient(name = "ct-cidade", url = "localhost:55455", path = "/cidade")
+@FeignClient(name = "ct-cidade", path = "/cidade")
 public interface ClienteFeignClient {
 
 	
