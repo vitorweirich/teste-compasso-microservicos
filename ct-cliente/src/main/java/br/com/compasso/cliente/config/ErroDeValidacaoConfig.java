@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -38,10 +39,10 @@ public class ErroDeValidacaoConfig {
 		return dto;
 	}
 	
-	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	//@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(CidadeException.class)
-	public ErroDeFormularioDto handle(CidadeException exception) {
-
-		return new ErroDeFormularioDto("cidade", exception.getMessage());
+	public ResponseEntity<ErroDeFormularioDto> handle(CidadeException exception) {
+		ErroDeFormularioDto erroDeFormularioDto = new ErroDeFormularioDto("cidade", exception.getMessage());
+		return ResponseEntity.badRequest().body(erroDeFormularioDto);
 	}
 }
