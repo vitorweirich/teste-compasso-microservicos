@@ -18,7 +18,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	private static final String[] PUBLIC = {"/ct-oauth/oauth/token"};
 	private static final String[] USER = {"/ct-cliente/**"};
-	private static final String[] ADMIM = {"/ct-cidade/**", "/ct-users/**"};
+	private static final String[] ADMIM = {"/ct-cidade/**", "/ct-users/**", "/ct-oauth/users/search"};
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {

@@ -40,7 +40,6 @@ public class ClienteController {
 	@GetMapping("/nome")
 	@Transactional
 	public ResponseEntity<List<ClienteDto>> buscaClientePeloNome(@RequestParam String nome) {
-		System.out.println("------------------ Entrou Aqui ---------------------");
 		Optional<List<Cliente>> clientes = clienteRepository.findByNomeContainingIgnoreCase(nome);
 		if(clientes.isPresent() && !clientes.get().isEmpty()){
 			return ResponseEntity.ok(ClienteDto.converter(clientes.get(), service));
@@ -60,7 +59,6 @@ public class ClienteController {
 	@PostMapping
 	@Transactional
 	public ResponseEntity<ClienteDto> cadastrar(@RequestBody @Valid ClienteForm clienteform, UriComponentsBuilder uriBuilder){
-		System.out.println("------------------ Entrou Aqui ---------------------");
 		Cliente cliente = clienteform.converter(service);
 		if (cliente == null) {
 			return ResponseEntity.notFound().build();
@@ -83,34 +81,13 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
-//	@PutMapping("/{id}")
-//	public ResponseEntity<Cliente> atualizar(@PathVariable String id, @RequestParam @Valid @NotEmpty @NotNull String nome){
-//		Optional<Cliente> findById = clienteRepository.findById(Long.parseLong(id));
-//		if(findById.isPresent()) {
-//			Cliente cliente = findById.get();
-//			cliente.setNome(nome);
-//			clienteRepository.save(cliente);
-//			return ResponseEntity.ok(cliente);
-//		}
-//		return ResponseEntity.notFound().build();
-//	}
-	
-//	@PostMapping("")
-//	@Transactional
-//	public ResponseEntity<ClienteDto> cadastrar(@RequestBody @Valid ClienteForm clienteForm, UriComponentsBuilder uriBuilder) {
-//		Cliente cliente = clienteForm.converter(clienteRepository);
-//		clienteRepository.save(cliente);
-//		URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(cliente.getId()).toUri();
-//		return ResponseEntity.created(uri).body(new ClienteDto(cliente));
-//	}
-	
 	@DeleteMapping("/{id}")
 	@Transactional
 	public ResponseEntity<ClienteDto> deletar(@PathVariable Long id){
 		Optional<Cliente> optional = clienteRepository.findById(id);
 		if(optional.isPresent()) {
 			clienteRepository.deleteById(id);
-			return ResponseEntity.ok(new ClienteDto(optional.get(), service));//.build();
+			return ResponseEntity.ok(new ClienteDto(optional.get(), service));
 		}
 		
 		return ResponseEntity.notFound().build();
