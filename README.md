@@ -43,8 +43,8 @@ Como é utilizado o Zuul para balancear carga e como gateway todos a requisiçõ
 >>> **Cadastrar cidade**: http://localhost:8765/ct-cidade/cidade, passando no corpo da requisição em json o nome e estado da cidade
 > #### ct-cliente
 >> ##### Método GET:
->>> **Buscar pelo nome**: http://localhost:8765/ct-cliente/cliente/nome?nome={nomeDoCliente}
->>> Buscar pelo id: http://localhost:8765/ct-cliente/cliente/id?id={id}
+>>> **Buscar pelo nome**: http://localhost:8765/ct-cliente/cliente/nome?nome={nomeDoCliente}  
+>>> **Buscar pelo id**: http://localhost:8765/ct-cliente/cliente/id?id={id}
 >> ##### Método POST:
 >>> **Cadastrar Cliente:** http://localhost:8765/ct-cliente/cliente, passando no corpo em json os dados, nome, sexo, dataNascimente, idade, cidade(o nome).
 >> ##### Método PATCH:
