@@ -37,7 +37,7 @@ Como é utilizado o Zuul para balancear carga e como gateway todos a requisiçõ
 >>> **Login:** http://localhost:8765/ct-oauth/oauth/token, passando todas as credencias da aplicação e do usuário.
 > #### ct-cidade:
 >> ##### Método GET: 
->>> **Buscar pelo nome**: http://localhost:8765/ct-cidade/cidade/nome?nome={nomeDaCidade}
+>>> **Buscar pelo nome**: http://localhost:8765/ct-cidade/cidade/nome?nome={nomeDaCidade}  
 >>> **Buscar pelo estado:** http://localhost:8765/ct-cidade/cidade/estado?estado={nomeDoEstado}
 >> ##### Método POST:
 >>> **Cadastrar cidade**: http://localhost:8765/ct-cidade/cidade, passando no corpo da requisição em json o nome e estado da cidade
