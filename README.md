@@ -53,7 +53,7 @@ Como é utilizado o Zuul para balancear carga e como gateway todos a requisiçõ
 >>> **Deletar pelo id:** http://localhost:8765/ct-cliente/cliente/{id}
 > #### ct-user:
 >> ##### Método GET:
->>> **Buscar pelo id:** http://localhost:8765/ct-user/users/{id}
+>>> **Buscar pelo id:** http://localhost:8765/ct-user/users/{id}  
 >>> **Buscar pelo email:** http://localhost:8765/ct-user/users/search?email={email}
 
 ## Credencias
