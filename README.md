@@ -8,22 +8,24 @@ Desenvolvido usando as ferramentas do spring cloud, sendo que algumas delas já 
 ## Organização do projeto
 O projeto consiste em 6 micro serviços sendo eles:
 ##### ct-cidade
-> Responsável pelos dados relacionados a cidade.
+- Responsável pelos dados relacionados a cidade.
 ##### ct-cliente
-> Responsável pelos dados dos clientes.
+- Responsável pelos dados dos clientes.
 ##### ct-user
-> Responsável por guardar as credencias usadas para autorização.
+- Responsável por guardar as credencias usadas para autorização.
 ##### ct-oauth
-> Responsável pela autorização.
+- Responsável pela autorização.
 ##### ct-eureka-server
-> Responsável por cadastrar as APIs que serão gerenciadas pelo zuul.
+- Responsável por cadastrar as APIs que serão gerenciadas pelo zuul.
 ##### ct-zuul
-> Responsável por verificar a autorização do usuário, balanceamento de carga, api gateway e disponibilizar o conteúdo.
+- Responsável por verificar a autorização do usuário, balanceamento de carga, api gateway e disponibilizar o conteúdo.
+
+- [ ] asadasd
 
 ## Instruções para teste
 Basta compilar e rodar todos os micro serviços individualmente. O projeto ct-eureka-server precisa ser o primeiro depois dele a ordem não importa. Para facilitar os testes estarei disponibilizando um arquivo json de uma coleção do postman com o nome de postman-colec.json(você apenas precisara criar uma variável de ambiente chamada 'token' para tudo funcionar automaticamente).
 
-O projeto tem implementado autorização por meio de token jwt, ou seja para fazer acessar qualquer um dos endpoints que serão listados abaixo primeiramente é necessário fazer login por meio do seguinte endpoint: http://localhost:8765/ct-oauth/oauth/token passando as credencias do app em base64 no cabeçalho da requisição e ainda as credencias de um dos dois usuários já cadastrados(para ser mais fácil é só usar o endpint login disponibilizado no postman), se tudo estiver certo você recebera um token de retorno que precisa ser mandado em todas as requisições que quiser fazer(é um bearer token). Deixarei todas as credencias no final desse README.
+O projeto tem implementado autorização por meio de token jwt, ou seja para fazer acessar qualquer um dos endpoints que serão listados abaixo primeiramente é necessário fazer login por meio do seguinte endpoint: http://localhost:8765/ct-oauth/oauth/token passando as credencias do app em base64 no cabeçalho da requisição e ainda as credencias de um dos dois usuários já cadastrados(para ser mais fácil é só usar o endpint login disponibilizado no postman), se tudo estiver certo você recebera um token de retorno que precisa ser mandado em todas as requisições que quiser fazer(é um bearer token). Deixarei todas as credencias no [final](#credenciais) desse README.
 
 De maneira simplificada o usuário operador tem acesso somente aos endpoints de cliente e de usuários, o administrador tem acesso a todos.
 
@@ -58,11 +60,18 @@ Como é utilizado o Zuul para balancear carga e como gateway todos a requisiçõ
 
 ## Credencias
 > #### App
-> app-name: compasso-test-app-name
-> app-secret: compasso-teste-app-secret
+> ~~~python
+> app-name = compasso-test-app-name
+> app-secret = compasso-teste-app-secret
 
 > #### Usuários
-> Usuário operador: nina@gmail.com
-senha: 123456
-> Usuário administrador: leia@gmail.com
-senha: 123456
+>> ~~~python
+>>Usuário operador = nina@gmail.com
+>>senha = 123456 
+>
+>> ~~~python
+>>Usuário administrador = leia@gmail.com
+>>senha = 123456
+>>~~~
+
+# Autor: Vitor Mateus Weirich
